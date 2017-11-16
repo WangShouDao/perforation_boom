@@ -4,3 +4,9 @@ F:\C#\FSKprogram\FSKprogram\bin\Debug\FSKprogram.pdb
 F:\C#\FSKprogram\FSKprogram\obj\Debug\FSKprogram.csprojResolveAssemblyReference.cache
 F:\C#\FSKprogram\FSKprogram\obj\Debug\FSKprogram.exe
 F:\C#\FSKprogram\FSKprogram\obj\Debug\FSKprogram.pdb
+F:\C#\FSK_program\FSKprogram\bin\Debug\FSKprogram.exe.config
+F:\C#\FSK_program\FSKprogram\obj\Debug\FSKprogram.exe
+F:\C#\FSK_program\FSKprogram\obj\Debug\FSKprogram.pdb
+F:\C#\FSK_program\FSKprogram\bin\Debug\FSKprogram.exe
+F:\C#\FSK_program\FSKprogram\bin\Debug\FSKprogram.pdb
+F:\C#\FSK_program\FSKprogram\obj\Debug\FSKprogram.csprojResolveAssemblyReference.cache

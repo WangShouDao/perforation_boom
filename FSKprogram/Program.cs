@@ -60,16 +60,19 @@ namespace FSKprogram
 
         static void Main(string[] args)
         {           
-            FileStream fs = new FileStream("F:\\C#\\FSKprogram\\FSKprogram\\zls01.dat", FileMode.Open);
-            FileStream fs1 = new FileStream("F:\\C#\\FSKprogram\\FSKprogram\\fskpo6.out", FileMode.OpenOrCreate);
-            FileStream fs2 = new FileStream("F:\\C#\\FSKprogram\\FSKprogram\\zl10t.out", FileMode.OpenOrCreate);
-            FileStream fs3 = new FileStream("F:\\C#\\FSKprogram\\FSKprogram\\fskp66.out", FileMode.OpenOrCreate);
+            FileStream fs = new FileStream("F:\\C#\\FSK_program\\FSKprogram\\zls01.dat", FileMode.Open);
+            FileStream fs1 = new FileStream("F:\\C#\\FSK_program\\FSKprogram\\fskpo6.out", FileMode.Create);
+            FileStream fs2 = new FileStream("F:\\C#\\FSK_program\\FSKprogram\\zl10t.out", FileMode.Create);
+            FileStream fs3 = new FileStream("F:\\C#\\FSK_program\\FSKprogram\\fskp66.out", FileMode.Create);
+            FileStream fs4 = new FileStream("F:\\C#\\FSK_program\\FSKprogram\\pressure.out", FileMode.Create);
             StreamReader sr;
             StreamWriter sw;
+            StreamWriter sw1;
 
             #region 读取数据
             sr = new StreamReader(fs);
             sw = new StreamWriter(fs1);
+            
 
             string[] str1 = sr.ReadLine().Split(',');
             kg = int.Parse(str1[1]);
@@ -196,7 +199,7 @@ namespace FSKprogram
             za[3] = 0;
             za[5] = 0;
             za[6] = 0;
-
+            sw1 = new StreamWriter(fs4);
             bool flag = true;
             while(flag)
             {
@@ -213,7 +216,7 @@ namespace FSKprogram
                 bool flag1 = true;
                 while (flag1)
                 {
-                    if (nxxx != (nxxx / 100 * 100)) break;
+                    if (nxxx != (nxxx / 100 * 100)) break;              
                     if (t < ttt)
                         break;
                     else if (t <= 100)
@@ -221,7 +224,26 @@ namespace FSKprogram
                     else
                         ttt = ttt + 1;
 
-                    #region 赋值操作                     
+                    #region 记录t时刻各位置处的压力
+                    t = Convert.ToInt32(t);
+                    if (t / 1 == t)
+                    {
+                        double[] temp = new double[n1];                        
+                        //sw1.WriteLine("t = {0}", Convert.ToInt32(t));
+                        for (int i = 0; i < n1; i++)
+                        {
+                            temp[i] = za[lp1 + i];
+                            sw1.Write("{0, 18:F12}", za[lp1 + i]);
+                            //if ((i + 1) % 5 == 0)
+                               // sw1.WriteLine();
+                            sw1.Flush();
+                        }
+                        sw1.WriteLine();
+                    }
+                    #endregion
+
+
+                    #region 赋值操作
                     za[ltt + nttt] = t;
                     nttt = nttt + 1;
                     za[ltt + nttt] = za[lu1];
